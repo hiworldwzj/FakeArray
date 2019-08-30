@@ -52,7 +52,7 @@ public class GoodFakeArrayTest {
         for(int i = 0; i < 1000; i++) {
             alist.addLast(666);
         }
-        for(int i = 0; i < 10000000; i++) {
+        for(int i = 0; i < 1000000; i++) {
             if(i % 100000 == 0) {
                 System.out.println(i);
             }
@@ -66,7 +66,7 @@ public class GoodFakeArrayTest {
                 alist.delete(loc);
             }
         }
-        assertTrue(alist.length() < 10000000);
+        assertTrue(alist.length() < 1000000);
         assertTrue(alist.getDepth() < 64);
     }
 

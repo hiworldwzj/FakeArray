@@ -112,7 +112,11 @@ public class GoodFakeArray {
         int depth = 0;
         while(node != null) {
             depth += 1;
-            node = node.getSubNodes()[0];
+            if(node.getSubNodes() != null) {
+                node = node.getSubNodes()[0];
+            } else {
+                break;
+            }
         }
         return depth;
     }
@@ -168,9 +172,8 @@ public class GoodFakeArray {
 
 class TreeNode {
     public static int MAX_TREENODE_COUNT = 5;
+    protected TreeNode[] subNodes = new TreeNode[MAX_TREENODE_COUNT];
     private TreeNode fatherNode;
-    private TreeNode[] subNodes = new TreeNode[MAX_TREENODE_COUNT];
-
     private int childValueNodeNum;
     private int childTreeNodeNum;
 
@@ -289,6 +292,7 @@ class LeafNode extends  TreeNode {
         this.value = null;
         this.setChildValueNodeNum(1);
         this.setChildTreeNodeNum(0);
+        this.subNodes = null;
     }
 
     public Object getValue() {
